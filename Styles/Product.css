@@ -6,7 +6,7 @@
 }
 
 .clearfix::after {
-  content: "";
+  content: '';
   clear: both;
   display: table;
 }
@@ -16,10 +16,10 @@
     @apply rounded-lg border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent;
   }
   .button_primary {
-    @apply text-right my-auto ml-auto flex-shrink-0  px-4 py-2 text-base font-semibold text-white bg-green-400 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-green-200;
+    @apply text-right my-auto ml-auto flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-green-400 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-green-200;
   }
   .table_head {
-    @apply px-5 py-3 bg-white  border-b border-t border-gray-200 text-gray-800  text-left text-sm uppercase font-bold;
+    @apply px-5 py-3 bg-white border-b border-t border-gray-200 text-gray-800 text-left text-sm uppercase font-bold;
   }
 }
 
@@ -37,5 +37,61 @@
   margin: 1rem auto;
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.tabs {
+  position: relative;
+}
+
+.tabs-header {
+  background-color: #ffffff;
+  color: #334155;
+}
+
+.tabs-header-btn {
+  padding: 1em;
+  margin: 0 auto;
+  z-index: 2;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.tabs-header-btn.active {
+  border-radius: 0.2em;
+  color: #ffffff;
+}
+
+@layer components {
+  .tabs-header-btn.active {
+    @apply bg-green-400;
+  }
+}
+
+.tabs-body {
+  position: relative;
+  background: white;
+  color: #0e0d0d;
+}
+
+.tabs-body-item {
+  width: 100%;
+  position: absolute;
+  top: -100%;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  opacity: 0;
+  padding: 1em;
+  -webkit-transition: opacity 300ms ease-out, -webkit-transform 300ms ease-out;
+  transition: opacity 300ms ease-out, -webkit-transform 300ms ease-out;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  transition: opacity 300ms ease-out, transform 300ms ease-out, -webkit-transform 300ms ease-out;
+}
+
+.tabs-body-item.active {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1;
 }
 /*# sourceMappingURL=Product.css.map */

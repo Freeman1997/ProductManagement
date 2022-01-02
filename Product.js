@@ -1,23 +1,16 @@
 import moment from 'moment'
-import React, { useEffect, useState } from 'react'
-import './Styles/Product.scss'
-import SendProductInfo from './Upload/SendProductInfo'
+import React, { useContext, useState } from 'react'
+import { ProductDataContext } from './Context/context'
 import StoreUnitHandler from './CustomFunction/StoreUnitHandler'
 import UnitName from './CustomFunction/UnitName'
-import UpdateModal from './Update/UpdateModal'
-import RestCLient from './ProductRestApi/RestCLient'
 import AppUrl from './ProductRestApi/AppUrl'
+import RestCLient from './ProductRestApi/RestCLient'
+import UpdateModal from './Update/UpdateModal'
+import SendProductInfo from './Upload/SendProductInfo'
 
 
-export default function Product() {  
-  const [data, setData] = useState([])
-  const [reload, setReload] = useState(false)
-  useEffect(() => {
-    RestCLient.getData(AppUrl.ProductGetData)
-      .then((res) => setData(res))
-      .catch(() => {})
-  }, [reload])
-
+export default function Product() {
+  const {data,setReload}=useContext(ProductDataContext) 
   let deleteHandler = (id) => {
     console.log(id)
     RestCLient.deleteData(AppUrl.ProductDeleteData + id)
@@ -34,16 +27,8 @@ export default function Product() {
 
   return (
     <>
-      <div className="container mx-auto px-4 sm:px-8 max-w-screen">
-        <div className="py-9">
-          <div className="flex flex-row mb-1 sm:mb-0 justify-between w-full">
-            <h2 className="text-2xl leading-tight">Products</h2>
-
-            <SendProductInfo dataReload={setReload} submitTitle="Add Product" />
-          </div>
-          <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-            <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-              <table className="min-w-full leading-normal">
+      <div className="">
+      <table className="min-w-full leading-normal">
                 <thead>
                   <tr>
                     <th scope="col" className="table_head">
@@ -86,7 +71,7 @@ export default function Product() {
 
                       return (
                         <tr key={index}>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <td className="px-5  border-b border-gray-200 bg-white text-sm">
                             <div className="flex items-center">
                               <div className="flex-shrink-0">
                                 <p>{moment(created_at).format('DD/MM/YYYY')}</p>
@@ -165,9 +150,7 @@ export default function Product() {
                     })}
                 </tbody>
               </table>
-            </div>
-          </div>
-        </div>
+        
       </div>
       {showModal ? (
         <UpdateModal
