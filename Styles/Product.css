@@ -44,7 +44,7 @@
 }
 
 .tabs-header {
-  background-color: #ffffff;
+  background-color: white;
   color: #334155;
 }
 
@@ -59,26 +59,22 @@
 }
 
 .tabs-header-btn.active {
-  border-radius: 0.2em;
-  color: #ffffff;
-}
-
-@layer components {
-  .tabs-header-btn.active {
-    @apply bg-green-400;
-  }
+  border-top: 1px solid #34d399;
+  border-radius: 0.2em 0.2em 0 0;
+  color: #34d399;
 }
 
 .tabs-body {
   position: relative;
-  background: white;
+  background: transparent;
   color: #0e0d0d;
+  width: calc(100vw - 4rem);
+  height: 100vh;
 }
 
 .tabs-body-item {
   width: 100%;
   position: absolute;
-  top: -100%;
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
   opacity: 0;
