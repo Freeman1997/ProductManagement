@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
 import { ProductDataContext } from '../Context/context'
-import SendProductInfo from '../Upload/SendProductInfo'
 
 export default function Summery() {
-    const { data, setReload } = useContext(ProductDataContext)
+    const { data } = useContext(ProductDataContext)
     let nameOfProducts = []
     data.map((item) => nameOfProducts.push(item.product_name))
     nameOfProducts = [...new Set(nameOfProducts)]

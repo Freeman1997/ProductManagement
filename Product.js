@@ -6,7 +6,6 @@ import UnitName from './CustomFunction/UnitName'
 import AppUrl from './ProductRestApi/AppUrl'
 import RestCLient from './ProductRestApi/RestCLient'
 import UpdateModal from './Update/UpdateModal'
-import SendProductInfo from './Upload/SendProductInfo'
 
 
 export default function Product() {

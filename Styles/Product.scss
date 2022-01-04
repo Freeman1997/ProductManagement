@@ -86,6 +86,10 @@ $primaryColor:#34d399;
       opacity: 0;
       padding: 1em;
       transition: opacity 300ms ease-out, transform 300ms ease-out;
+      .doughnut{
+        width: 25rem; 
+
+      }
       &.active {
         transform: translateY(0px);
         opacity: 1;
