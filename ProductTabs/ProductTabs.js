@@ -7,7 +7,8 @@ import SendProductInfo from '../Upload/SendProductInfo'
 export default function ProductTabs() {
     const {setReload } = useContext(ProductDataContext)
     const [tabToggler, setTabToggler] = useState(1)
-   
+
+    
 
     
 
@@ -17,7 +18,7 @@ export default function ProductTabs() {
             <div className="container mx-auto px-4 sm:px-8 max-w-screen">
                 <div className="py-9">
                     <div className="flex flex-row mb-1 sm:mb-0 justify-between w-full">
-                        <h2 className="text-2xl leading-tight">Products Summery</h2>
+                        <h2 className="text-2xl leading-tight">Products</h2>
 
                         <SendProductInfo dataReload={setReload} submitTitle="Add Product" />
                     </div>
