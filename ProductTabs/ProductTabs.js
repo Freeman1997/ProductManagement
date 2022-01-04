@@ -5,13 +5,8 @@ import Summery from '../Summery/Summery'
 import SendProductInfo from '../Upload/SendProductInfo'
 
 export default function ProductTabs() {
-    const {setReload } = useContext(ProductDataContext)
+    const { setReload } = useContext(ProductDataContext)
     const [tabToggler, setTabToggler] = useState(1)
-
-    
-
-    
-
 
     return (
         <>
@@ -24,21 +19,22 @@ export default function ProductTabs() {
                     </div>
                     <div className="tabs">
                         <div className="tabs-header px-4">
-                            <button className={tabToggler === 1?'tabs-header-btn active':'tabs-header-btn'} value="details" onMouseEnter={()=>setTabToggler(1)}>
+
+                            <button className={tabToggler === 1 ? 'tabs-header-btn active' : 'tabs-header-btn'} value="details" onMouseEnter={() => setTabToggler(1)}>
+
                                 Product Details
                             </button>
-                            <button className={tabToggler === 2?'tabs-header-btn active':'tabs-header-btn'}  value="summery" onMouseEnter={() => setTabToggler(2)}>
+                            <button className={tabToggler === 2 ? 'tabs-header-btn active' : 'tabs-header-btn'} value="summery" onMouseEnter={() => setTabToggler(2)}>
                                 Product Summery
                             </button>
                         </div>
 
-
                     </div>
                     <div className="tabs-body">
-                        <div className={tabToggler === 1?'tabs-body-item active':'tabs-body-item'}>
+                        <div className={tabToggler === 1 ? 'tabs-body-item active' : 'tabs-body-item'}>
                             <Product />
                         </div>
-                        <div className={tabToggler === 2?'tabs-body-item active':'tabs-body-item'}>
+                        <div className={tabToggler === 2 ? 'tabs-body-item active' : 'tabs-body-item'}>
                             <Summery />
                         </div>
                     </div>

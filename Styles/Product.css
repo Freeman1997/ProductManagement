@@ -56,12 +56,18 @@
   text-align: center;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
+  border: 1px solid transparent;
+  position: relative;
+  height: auto;
 }
 
 .tabs-header-btn.active {
-  border-top: 1px solid #34d399;
+  border-bottom: 1px solid #34d399;
+  border-radius: 15px;
   border-radius: 0.2em 0.2em 0 0;
   color: #34d399;
+  -webkit-transition: none;
+  transition: none;
 }
 
 .tabs-body {
