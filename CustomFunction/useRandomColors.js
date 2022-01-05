@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export default function useRandomColors(data) {
     let hue = 0;

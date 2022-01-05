@@ -6,16 +6,24 @@ import SendProductInfo from '../Upload/SendProductInfo'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import useRandomColors from '../CustomFunction/useRandomColors'
+import useTotalProducts from '../CustomFunction/useTotalProducts'
 
 export default function ProductTabs() {
     const { setReload, data } = useContext(ProductDataContext)
     const [tabToggler, setTabToggler] = useState(1)
     ChartJS.register(ArcElement, Tooltip, Legend);
     const {colors} = useRandomColors(data);
+    const {productSummery} = useTotalProducts(data)
+   
+    
+    console.log(productSummery)
+
 
     const chartData = {
+        labels:productSummery.map((c) => c.itemName),
         datasets: [{
-            data: data.map((c) => c.input_unit_value),
+           
+            data: productSummery.map((c) => c.totalValue),
             backgroundColor: colors
 
         }],
